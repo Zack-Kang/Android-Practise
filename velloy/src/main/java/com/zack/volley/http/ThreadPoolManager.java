@@ -1,5 +1,6 @@
 package com.zack.volley.http;
 
+import android.os.AsyncTask;
 import android.util.Log;
 
 import java.util.concurrent.ArrayBlockingQueue;
@@ -17,10 +18,15 @@ import java.util.concurrent.TimeUnit;
 
 public class ThreadPoolManager {
     public static final String TAG = "ThreadPoolManager";
+
+    private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
+    private static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
+    private static final int MAXIMUM_POOL_SIZE = CPU_COUNT * 2 + 1;
+    private static final int KEEP_ALIVE_SECONDS = 30;
+
     private static ThreadPoolManager instance = new ThreadPoolManager();
 
     private LinkedBlockingQueue<Future<?>> taskQueue = new LinkedBlockingQueue<>();
-
     private ThreadPoolExecutor threadPoolExecutor;
 
     public static ThreadPoolManager getInstance(){
@@ -28,7 +34,7 @@ public class ThreadPoolManager {
     }
 
     private ThreadPoolManager(){
-        threadPoolExecutor = new ThreadPoolExecutor(4,8,10, TimeUnit.SECONDS,new ArrayBlockingQueue<Runnable>(4),handler);
+        threadPoolExecutor = new ThreadPoolExecutor(CORE_POOL_SIZE,MAXIMUM_POOL_SIZE,KEEP_ALIVE_SECONDS, TimeUnit.SECONDS,new ArrayBlockingQueue<Runnable>(4),handler);
         threadPoolExecutor.execute(runnable);
     }
 
@@ -43,7 +49,7 @@ public class ThreadPoolManager {
                 FutureTask futureTask = null;
                 try {
                     /**
-                     * 柱塞式函数
+                     * 阻塞式函数
                      */
                     Log.i(TAG,"等待队列："+taskQueue.size());
                     futureTask = (FutureTask) taskQueue.take();
@@ -55,7 +61,7 @@ public class ThreadPoolManager {
                 }
             }
         }
-    }
+    };
 
     private RejectedExecutionHandler handler = new RejectedExecutionHandler() {
         @Override
