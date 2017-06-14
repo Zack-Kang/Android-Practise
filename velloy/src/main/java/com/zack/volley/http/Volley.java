@@ -22,6 +22,7 @@ public class Volley {
         IHttpService httpService = new JsonHttpService();
         IHttpListener httpListener = new JsonDealListener<>(responese,dataListener);
         requestHolder.setHttpService(httpService);
+        requestHolder.setRequestInfo(requestInfo);
         requestHolder.setHttpListener(httpListener);
         HttpTask<T> httpTask = new HttpTask<>(requestHolder);
         try {
