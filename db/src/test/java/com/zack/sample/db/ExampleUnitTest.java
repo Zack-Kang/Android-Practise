@@ -1,4 +1,4 @@
-package sample.zack.com.db;
+package com.zack.sample.db;
 
 import org.junit.Test;
 

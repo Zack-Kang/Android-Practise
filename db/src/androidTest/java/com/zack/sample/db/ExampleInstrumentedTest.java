@@ -1,4 +1,4 @@
-package sample.zack.com.db;
+package com.zack.sample.db;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("sample.zack.com.db.test", appContext.getPackageName());
+        assertEquals("com.zack.sample.db", appContext.getPackageName());
     }
 }

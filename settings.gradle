@@ -1,1 +1,1 @@
-include ':app', ':imgloader', ':db', ':db', ':velloy'
+include ':app', ':imgloader', ':velloy', ':db'
