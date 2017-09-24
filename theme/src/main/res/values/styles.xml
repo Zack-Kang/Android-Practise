@@ -1,0 +1,23 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <!-- Customize your theme here. -->
+        <!--主色-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!--主色&#45;&#45;深色，一般可以用于状态栏颜色、底部导航栏-->
+        <item name="colorPrimaryDark">#346ef5</item>
+        <!--代表各个控件的基调颜色&#45;&#45;CheckBox、RadioButton、ProgressBar等待-->
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--当前所有的文本颜色-->
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

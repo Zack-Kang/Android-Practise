@@ -1,1 +1,1 @@
-include ':app', ':imgloader', ':velloy', ':db'
+include ':app', ':imgloader', ':velloy', ':db', ':theme'
