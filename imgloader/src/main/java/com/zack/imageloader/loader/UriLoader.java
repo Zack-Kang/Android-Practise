@@ -53,7 +53,7 @@ public class UriLoader extends AbstractLoader {
             };
 
 
-            return bitmapDecoder.decodeBitmap();
+            return null;//bitmapDecoder.decodeBitmap();
         } catch (IOException e) {
             e.printStackTrace();
         }

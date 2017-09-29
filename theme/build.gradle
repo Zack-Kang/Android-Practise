@@ -22,6 +22,19 @@ android {
     }
 }
 
+gradle.beforeProject {
+    println "beforeProject"
+}
+
+gradle.taskGraph.whenReady {
+    println "whenReady"
+}
+
+gradle.buildFinished {
+    println "buildFinished"
+}
+
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {

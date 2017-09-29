@@ -49,6 +49,7 @@ public abstract class BaseDao<T> implements IBaseDao<T> {
             initFieldMap();
             isInit = true;
         }
+        return true;
     }
 
     /**
