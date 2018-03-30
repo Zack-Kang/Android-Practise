@@ -36,14 +36,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //LinearLayoutManager:默认垂直
         //recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //reverseLayout When set to true, layouts from end to start.
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
-        //recyclerView.setLayoutManager(new GridLayoutManager(this,3));
+        //recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
         //adapter = new MyStaggeredRecyclerViewAdapter(list);
         //recyclerView.setLayoutManager(new StaggeredGridLayoutManager(10,StaggeredGridLayoutManager.HORIZONTAL));
         recyclerView.setAdapter(adapter);
+        //recyclerView.addItemDecoration();
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        itemDecoration = new DividerItemDecoration(this, LinearLayoutManager.VERTICAL);
-        recyclerView.addItemDecoration(itemDecoration);
+        itemDecoration = new DividerItemDecoration(this,R.color.colorAccent,LinearLayoutManager.VERTICAL,50,100,100);
+        //recyclerView.addItemDecoration(itemDecoration);
 
     }
 
@@ -59,11 +61,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (itemDecoration!=null)
             recyclerView.removeItemDecoration(itemDecoration);
         if (isGrid){
-            itemDecoration = new DividerItemDecoration(this, LinearLayoutManager.VERTICAL);
+            itemDecoration = new DividerItemDecoration(this,R.color.colorAccent,LinearLayoutManager.VERTICAL,50,100,100);
             recyclerView.addItemDecoration(itemDecoration);
             recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         }else{
-            itemDecoration = new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL);
+            itemDecoration = new DividerItemDecoration(this,R.color.colorAccent,LinearLayoutManager.HORIZONTAL,50,100,100);
             recyclerView.addItemDecoration(itemDecoration);
             recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
            // recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL));

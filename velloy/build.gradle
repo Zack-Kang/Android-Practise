@@ -1,26 +1,41 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
-
+    signingConfigs {
+        config {
+            keyAlias '123456'
+            keyPassword '123456'
+            storeFile file('D:/Users/zhoukang/Documents/Android-Practise/store.jks')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.zack.velloy"
         minSdkVersion 19
-        targetSdkVersion 25
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        signingConfig signingConfigs.config
     }
     buildTypes {
         release {
-            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
         }
     }
     useLibrary 'org.apache.http.legacy'
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+    productFlavors {
+    }
 }
 
 dependencies {
@@ -33,4 +48,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.alibaba:fastjson:1.2.32'
     compile 'org.apache.httpcomponents:httpcore:4.4.6'
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.squareup.okio:okio:1.6.0'
 }

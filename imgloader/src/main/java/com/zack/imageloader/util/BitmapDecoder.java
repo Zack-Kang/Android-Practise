@@ -13,7 +13,7 @@ public abstract class BitmapDecoder {
         //只需要读取图片宽高信息，无需将整张图片加载到内存，inJustDecodeBounds设置true
         options.inJustDecodeBounds = true;
         decodeBitmapWidthOption(options);
-
+        return null;
     }
 
     public abstract Bitmap decodeBitmapWidthOption(BitmapFactory.Options options);

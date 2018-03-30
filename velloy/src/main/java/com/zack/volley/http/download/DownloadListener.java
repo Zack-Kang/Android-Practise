@@ -33,7 +33,7 @@ public class DownloadListener implements IDownListener {
     }
 
     public void addHttpHeader(Map<String,String> headerMap){
-        if ()
+       // if ()
     }
     @Override
     public void onSuccess(HttpEntity httpEntity) {

@@ -29,6 +29,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.tvContent.setText(list.get(position));
+        holder.tvContent.setBackgroundColor( holder.tvContent.getResources().getColor(android.R.color.darker_gray));
     }
 
     @Override
@@ -41,6 +42,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         public MyViewHolder(View itemView) {
             super(itemView);
             tvContent = itemView.findViewById(android.R.id.text1);
+            itemView.setBackgroundColor(tvContent.getContext().getResources().getColor(R.color.colorPrimary));
         }
     }
 }
