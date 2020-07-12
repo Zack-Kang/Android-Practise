@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+
+    <com.zack.uicomponent.widget.HorizontalScrollViewEx
+        android:background="@android:color/holo_green_light"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_move"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:clickable="true"
+            android:text="Move"/>
+
+        <com.zack.uicomponent.widget.StickView
+            android:id="@+id/stack_view"
+            android:background="@color/colorAccent"
+            android:layout_width="20dp"
+            android:clickable="true"
+            android:layout_height="match_parent"/>
+
+        <com.zack.uicomponent.widget.CircleView
+            android:background="@color/colorPrimary"
+            android:layout_width="300dp"
+            android:clickable="true"
+            android:layout_height="match_parent"
+            app:circle_color="@color/colorPrimaryDark"
+            android:padding="20dp"
+            />
+        <ListView
+            android:id="@+id/lsitview"
+            android:layout_width="400dp"
+            android:layout_height="match_parent"/>
+
+
+
+    </com.zack.uicomponent.widget.HorizontalScrollViewEx>
+</LinearLayout>

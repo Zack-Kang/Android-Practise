@@ -1,1 +1,2 @@
+include ':uicomponent'
 include ':app', ':imgloader', ':velloy', ':db', ':theme'
