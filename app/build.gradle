@@ -19,6 +19,34 @@ android {
     }
 }
 
+this.project.beforeEvaluate{
+        project
+        println "sub ### Evaluate before of " + project.path
+}
+
+this.project.afterEvaluate {
+    project ->
+        println "sub ### Evaluate after of " + project.path
+}
+
+this.getGradle().afterProject { project,projectState ->
+    if(projectState.failure){
+        println "sub Evaluation afterProject of "+project+" FAILED"
+    } else {
+        println "sub Evaluation afterProject of "+project+" succeeded"
+    }
+
+}
+
+task hello {
+    doFirst {
+        println '*** task hello doFirst' +System.properties['APK_ANALYZE_PARAM']
+    }
+    doLast {
+        println '*** task hello doLast'
+    }
+    println '*** config task hello'
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

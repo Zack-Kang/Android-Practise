@@ -23,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
          findViewById(R.id.textView).setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                 //Intent intent = new Intent(MainActivity.this,SecondActivity.class);
-                 //MainActivity.this.startActivity(intent);
-                 main();
+                 Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+                 MainActivity.this.startActivity(intent);
+                 //main();
 
              }
          });
@@ -43,5 +43,47 @@ public class MainActivity extends AppCompatActivity {
         //Log.e("objson",gson.toJson(users));
 
         ((TextView)findViewById(R.id.textView)).setText(gson.toJson(user));
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Log.i(this.getClass().getName(), "onNewIntent");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(this.getClass().getName(), "onRestart");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(this.getClass().getName(), "onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(this.getClass().getName(), "onResume");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(this.getClass().getName(), "onDestroy");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(this.getClass().getName(), "onStop");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(this.getClass().getName(), "onPause");
     }
 }

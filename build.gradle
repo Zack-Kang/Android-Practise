@@ -6,7 +6,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.3'
+        classpath 'com.android.tools.build:gradle:4.0.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -22,4 +22,90 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+gradle.addBuildListener(new BuildListener() {
+    @Override
+    void buildStarted(Gradle gradle) {
+
+    }
+
+    @Override
+    void settingsEvaluated(Settings settings) {
+
+    }
+
+    @Override
+    void projectsLoaded(Gradle gradle) {
+
+    }
+
+    @Override
+    void projectsEvaluated(Gradle gradle) {
+
+    }
+
+    @Override
+    void buildFinished(BuildResult result) {
+
+    }
+})
+
+this.project.subprojects{ sub ->
+    sub.beforeEvaluate{
+        project
+        println "closure### Evaluate before of " + project.path
+    }
+}
+
+this.project.subprojects{ sub ->
+    sub.beforeEvaluate(new Action<Project>(){
+
+        @Override
+        void execute(Project project) {
+            println "action### Evaluate before of " + project.path
+        }
+    })
+}
+
+this.project.subprojects {
+    sub ->
+        sub.afterEvaluate{
+            project ->
+                println "action### Evaluate after of " + project.path
+
+        }
+}
+
+this.project.beforeEvaluate {
+    project ->
+    println "root ### Evaluate before of " + project.path
+}
+
+this.project.afterEvaluate {
+    project ->
+        println "root ### Evaluate after of " + project.path
+}
+
+
+project.afterEvaluate {
+
+}
+
+project.afterEvaluate {
+
+}
+
+
+gradle.beforeProject { p ->
+    println("Evaluation beforeProject"+p)
+}
+
+this.getGradle().afterProject { project,projectState ->
+    if(projectState.failure){
+        println "Evaluation afterProject of "+project+" FAILED"
+    } else {
+        println "Evaluation afterProject of "+project+" succeeded"
+    }
+
 }
