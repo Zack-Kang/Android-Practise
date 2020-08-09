@@ -1,7 +1,11 @@
 package com.zack.uicomponent;
 
+import android.content.res.Configuration;
+import android.os.PersistableBundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
@@ -38,6 +42,61 @@ ListView listView;
 
         listView = findViewById(R.id.lsitview);
         listView.setAdapter(createAdapter() );
+        Log.e(this.getClass().getName(),"onCreate");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.e(this.getClass().getName(),"onStart");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.e(this.getClass().getName(),"onRestart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e(this.getClass().getName(),"onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e(this.getClass().getName(),"onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.e(this.getClass().getName(),"onStop");
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.e(this.getClass().getName(),"onConfigurationChanged");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e(this.getClass().getName(),"onDestroy");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.e(this.getClass().getName(),"onSaveInstanceState");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.e(this.getClass().getName(),"onRestoreInstanceState");
     }
 
     private android.widget.ListAdapter createAdapter() {

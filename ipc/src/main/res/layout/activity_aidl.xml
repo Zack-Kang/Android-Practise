@@ -4,36 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
 
     <TextView
+        android:id="@+id/tv_result"
         android:gravity="center"
-        android:text="主页"
+        android:hint="结果......"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:padding="15dp"/>
+        android:padding="5dp"/>
     <Button
-        android:id="@+id/btn_aidl"
+        android:id="@+id/btn_add_book"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:text="aidl"
+        android:text="添加一本书"
+        android:padding="5dp"
         />
     <Button
-        android:id="@+id/btn_messenger"
+        android:id="@+id/btn_del_book"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:text="messenger"
+        android:text="删除一本书"
+        android:padding="5dp"
         />
+    <Button
+        android:text="注册"
+        android:id="@+id/btn_regist"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:padding="5dp" />
 
     <Button
-        android:id="@+id/btn_binder"
+        android:text="反注册"
+        android:id="@+id/btn_unregist"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:text="BinderPool"
-        />
+        android:padding="5dp" />
 </LinearLayout>
