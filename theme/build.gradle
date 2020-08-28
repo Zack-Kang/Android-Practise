@@ -22,17 +22,8 @@ android {
     }
 }
 
-gradle.beforeProject {
-    println "beforeProject"
-}
 
-gradle.taskGraph.whenReady {
-    println "whenReady"
-}
 
-gradle.buildFinished {
-    println "buildFinished"
-}
 
 
 dependencies {

@@ -1,3 +1,17 @@
+include ':ndk'
+include ':JLib'
 include ':ipc'
 include ':uicomponent'
 include ':app', ':imgloader', ':velloy', ':db', ':theme'
+println("****** settings >> Initialization")
+
+/*
+gradle.settingsEvaluated {
+    println("****** settings >> settingsEvaluated")
+}
+
+gradle.projectsLoaded {
+    println("****** settings >> projectsLoaded")
+}
+*/
+

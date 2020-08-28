@@ -1,20 +1,26 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
     repositories {
+        mavenLocal()
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
         maven { url "https://jitpack.io" }
+        maven {
+            url = "http://jfrog.cloud.qiyi.domain:80/iqiyi-maven-ott"
+        }
         google()
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath 'com.gala.video.apkanalyzer:analyzer:0.0.0.3'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
+
+apply plugin:'com.gala.video.plugin.apkanalyzer'
 
 allprojects {
     repositories {
@@ -26,93 +32,51 @@ allprojects {
         jcenter()
     }
 }
+/*
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-
-gradle.addBuildListener(new BuildListener() {
-    @Override
-    void buildStarted(Gradle gradle) {
-
+project.subprojects { sub ->
+    sub.beforeEvaluate {
+        println("****** subProject >> project beforeEvaluate")
     }
-
-    @Override
-    void settingsEvaluated(Settings settings) {
-
-    }
-
-    @Override
-    void projectsLoaded(Gradle gradle) {
-
-    }
-
-    @Override
-    void projectsEvaluated(Gradle gradle) {
-
-    }
-
-    @Override
-    void buildFinished(BuildResult result) {
-
-    }
-})
-
-this.project.subprojects{ sub ->
-    sub.beforeEvaluate{
-        project
-        println "closure### Evaluate before of " + project.path
+    sub.afterEvaluate {
+        println("****** subProject >> project afterEvaluate")
     }
 }
 
-this.project.subprojects{ sub ->
-    sub.beforeEvaluate(new Action<Project>(){
-
-        @Override
-        void execute(Project project) {
-            println "action### Evaluate before of " + project.path
-        }
-    })
+gradle.beforeProject {
+    println("****** gradle >> beforeProject")
 }
 
-this.project.subprojects {
-    sub ->
-        sub.afterEvaluate{
-            project ->
-                println "action### Evaluate after of " + project.path
-
-        }
+gradle.afterProject {
+    println("****** gradle >> afterProject")
 }
 
-this.project.beforeEvaluate {
-    project ->
-    println "root ### Evaluate before of " + project.path
-}
-
-this.project.afterEvaluate {
-    project ->
-        println "root ### Evaluate after of " + project.path
+gradle.projectsEvaluated {
+    println("****** gradle >> projectsEvaluated")
 }
 
 
-project.afterEvaluate {
-
+gradle.taskGraph.whenReady {
+    println("****** gradle.taskGraph >> whenReady")
 }
 
-project.afterEvaluate {
-
+gradle.taskGraph.beforeTask {
+    println("****** gradle.taskGraph >> beforeTask")
 }
 
-
-gradle.beforeProject { p ->
-    println("Evaluation beforeProject"+p)
+gradle.taskGraph.afterTask {
+    println("****** gradle.taskGraph >> afterTask")
 }
 
-this.getGradle().afterProject { project,projectState ->
-    if(projectState.failure){
-        println "Evaluation afterProject of "+project+" FAILED"
-    } else {
-        println "Evaluation afterProject of "+project+" succeeded"
-    }
-
+gradle.beforeSettings {
+    println("****** gradle >> beforeSettings")
 }
+
+gradle.buildStarted {
+    println("****** gradle >> buildStarted")
+}
+
+gradle.buildFinished {
+    println("****** gradle >> buildFinished")
+}
+*/
