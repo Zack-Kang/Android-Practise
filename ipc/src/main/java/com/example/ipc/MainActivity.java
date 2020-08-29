@@ -3,7 +3,13 @@ package com.example.ipc;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Xml;
 import android.view.View;
+
+import org.xmlpull.v1.XmlPullParser;
+
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +39,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.btn_broadcast).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, BroadCastReceiverActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

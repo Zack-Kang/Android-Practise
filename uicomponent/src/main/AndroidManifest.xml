@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zack.uicomponent">
+    <permission
+        android:name="com.example.ipc.aidl.RemoteReceiver"
+        android:permissionGroup="android.permission-group.COST_MONEY"
+        android:protectionLevel="normal" />
 
     <application
         android:allowBackup="true"

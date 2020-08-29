@@ -1,5 +1,6 @@
 package com.zack.uicomponent;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
@@ -39,7 +40,13 @@ ListView listView;
                 stickView.smoothScrollTo(500,500);
             }
         });*/
-
+        findViewById(R.id.stack_view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent("com.example.ipc.aidl.RemoteService_remote");
+                sendBroadcast(intent,"com.example.ipc.aidl.RemoteReceiver");
+            }
+        });
         listView = findViewById(R.id.lsitview);
         listView.setAdapter(createAdapter() );
         Log.e(this.getClass().getName(),"onCreate");

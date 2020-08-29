@@ -36,4 +36,12 @@
         android:layout_height="45dp"
         android:text="BinderPool"
         />
+
+    <Button
+        android:id="@+id/btn_broadcast"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="BroadCast"
+        />
 </LinearLayout>

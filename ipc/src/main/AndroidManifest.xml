@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ipc">
-
+    <uses-permission android:name="com.example.ipc.aidl.RemoteReceiver"/>
     <application
         android:name=".BaseApplication"
         android:allowBackup="true"
@@ -10,13 +10,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BinderPoolActivity"></activity>
+        <activity android:name=".BroadCastReceiverActivity"></activity>
+        <activity android:name=".BinderPoolActivity" />
 
         <service
             android:name=".aidl.RemoteService"
             android:enabled="true"
-            android:process=":remote"
-            android:exported="true" />
+            android:exported="true"
+            android:process=":remote" />
 
         <activity android:name=".MessengerActivity" />
 
@@ -24,6 +25,7 @@
             android:name=".messager.MessagerService"
             android:enabled="true"
             android:exported="true"
+            android:permission="com.example.ipc.aidl.RemoteService"
             android:process=":messenger" />
 
         <activity android:name=".AidlActivity" />
@@ -34,13 +36,24 @@
             android:exported="true"
             android:process=":remote" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:taskAffinity="">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".receiver.RBroadcastReceiver"
+            android:permission="com.example.ipc.aidl.RemoteReceiver"
+            android:exported="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.example.ipc.aidl.RemoteService_remote"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

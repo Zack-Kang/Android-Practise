@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
         findViewById(R.id.tv_call_jni).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((TextView)findViewById(R.id.tv_message)).setText(SayHello());
+                ((TextView)findViewById(R.id.tv_message)).setText(staticMethod());
             }
         });
 
@@ -32,17 +32,17 @@ public class MainActivity extends Activity {
         findViewById(R.id.tv_create_obj).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Persion[] persions = createJavaObjects();
-                StringBuilder stringBuilder = new StringBuilder();
+               Persion[] persions = createJavaObjects();
+                 StringBuilder stringBuilder = new StringBuilder("Native Create Java Object:").append("\n");
                 for (Persion persion : persions){
-                    stringBuilder.append(persion);
+                    stringBuilder.append(persion).append("\n");
                 }
                 ((TextView)findViewById(R.id.tv_message)).setText(stringBuilder.toString());
             }
         });
     }
 
-    private native static Persion[] createJavaObjects();
+   public native Persion[] createJavaObjects();
 
     public native String staticMethod();
 

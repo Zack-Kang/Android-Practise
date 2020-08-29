@@ -10,7 +10,8 @@
     <TextView
         android:id="@+id/tv_message"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:minHeight="90dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:focusable="true"
         android:text=" "
@@ -21,7 +22,7 @@
         android:layout_height="45dp"
         android:gravity="center"
         android:focusable="true"
-        android:text="call jni"
+        android:text="call static register jni method"
         />
     <Button
         android:id="@+id/tv_call_dynamic_jni"
@@ -29,7 +30,7 @@
         android:layout_height="45dp"
         android:gravity="center"
         android:focusable="true"
-        android:text="call jni"
+        android:text="call dynamic register jni method"
         />
     <Button
         android:id="@+id/tv_create_obj"
@@ -37,6 +38,6 @@
         android:layout_height="45dp"
         android:gravity="center"
         android:focusable="true"
-        android:text="call jni"
+        android:text="jni create java obj"
         />
 </LinearLayout>

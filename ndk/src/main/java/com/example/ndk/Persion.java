@@ -24,4 +24,12 @@ public class Persion {
     public static int getStudentCount() {
         return sCount;
     }
+
+    @Override
+    public String toString() {
+        return "Persion{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }
